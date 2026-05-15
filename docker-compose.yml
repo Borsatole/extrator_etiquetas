@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: extrator-etiquetas
+    ports:
+      - "8000:8000"
+    environment:
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+      UPLOAD_FOLDER: ./temp
+    volumes:
+      - ./temp:/app/temp
+      - ./app:/app/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - etiquetas-network
+
+networks:
+  etiquetas-network:
+    driver: bridge
