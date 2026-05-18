@@ -5,7 +5,7 @@ services:
     build: .
     container_name: extrator-etiquetas
     ports:
-      - "8000:8000"
+      - "8001:8000"
     environment:
       GOOGLE_API_KEY: ${GOOGLE_API_KEY}
       UPLOAD_FOLDER: ./temp
