@@ -10,9 +10,7 @@ services:
       GOOGLE_API_KEY: ${GOOGLE_API_KEY}
       UPLOAD_FOLDER: ./temp
     volumes:
-      - ./temp:/app/temp
-      - ./app:/app/app
-
+      - .:/app  # <--- MUDANÇA AQUI: MAPEIA A RAIZ INTEIRA PARA O /APP DO CONTAINER
     networks:
       - etiquetas-network
 
